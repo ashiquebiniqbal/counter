@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-  formatCount = () => {
-    if (this.props.value == 0) return "Zero";
-    return this.props.value;
-  };
 
   render() {
     return (
@@ -12,7 +8,7 @@ class Counter extends Component {
         <ul>
           <li class="list-unstyled">
             <div>
-              <span class="badge bg-primary">{this.formatCount()}</span>
+              <span class="badge bg-primary">{this.props.value}</span>
               <button
                 onClick={() => this.props.onIncrement(this.props.id)}
                 type="button"
@@ -27,7 +23,11 @@ class Counter extends Component {
               >
                 -
               </button>
-              <button type="button" class="btn btn-danger m-2">
+              <button 
+                onClick={() => this.props.onDelete(this.props.id)}
+                type="button" 
+                class="btn btn-danger m-2"
+              >
                 Delete
               </button>
             </div>
